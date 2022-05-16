@@ -55,5 +55,8 @@ function playRound(computerPlay,playerSelection){
     }
 }
 
+function game(playRound,computerPlay,playerSelection,playerInput){
+    
+    playRound(computerPlay(),playerSelection(playerInput))
+}
 let playerInput = prompt("This is rock paper scissors, write your choice: ", options[Math.floor(Math.random()*3)] );
-console.log(playRound(computerPlay(),playerSelection(playerInput)));
