@@ -11,14 +11,28 @@ function computerPlay(){
             return 2;
             break;
         case 3:
-            console.log("Paper");
+            console.log("Scissors");
             return 3;
             break;        
     }
 }
-
-function playRound(){
+function playerSelection(playerInput){
 
 }
 
-computerPlay();
+function playRound(computerPlay,playerSelection){
+    // this function is used to check who won 
+    let result = computerPlay - playerSelection;
+    const options = ["Rock", "Paper", "Scissors"] 
+    if(result === 0){
+            console.log("It is a Tie, you both chose " + options[computerPlay-1]);
+    }
+    if(result === -1 || result ===2){
+            console.log("You win " +options[playerSelection-1]+ " beats " +options[computerPlay-1])
+    }
+    if (result === 1 || result ===-2){
+            console.log("You lost " +options[playerSelection-1] + " looses to " + options[computerPlay-1])
+    }
+}
+
+playRound(computerPlay() ,computerPlay());
