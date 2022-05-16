@@ -31,6 +31,7 @@ function playerSelection(playerInput){
             break;
         default:
             console.log("Invalid input");
+            return 4;
             break;
     } 
 }
