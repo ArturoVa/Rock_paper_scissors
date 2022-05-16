@@ -41,15 +41,15 @@ function playRound(computerPlay,playerSelection){
     let result = computerPlay - playerSelection;
     
     if(result === 0){
-            console.log("It is a Tie, you both chose " + options[computerPlay-1]);
+             return "It is a Tie, you both chose " + options[computerPlay-1];
     }
     if(result === -1 || result ===2){
-            console.log("You win " +options[playerSelection-1]+ " beats " +options[computerPlay-1])
+            return "You win " +options[playerSelection-1]+ " beats " +options[computerPlay-1];
     }
     if (result === 1 || result ===-2){
-            console.log("You lost " +options[playerSelection-1] + " looses to " + options[computerPlay-1])
+            return "You lost " +options[playerSelection-1] + " looses to " + options[computerPlay-1];
     }
 }
 
 let playerInput = prompt("This is rock paper scissors, write your choice: ", options[Math.floor(Math.random()*3)] )
-console.log(playerSelection(playerInput))
+console.log(playRound(computerPlay,playerSelection(playerInput)))
