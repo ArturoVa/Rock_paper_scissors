@@ -38,25 +38,41 @@ function playerSelection(playerInput){
 var options = ["Rock", "Paper", "Scissors"];
 function playRound(computerPlay,playerSelection){
     // this function is used to check who won 
-    if(playerSelection === 4) {
-        console.log("invalid input")
-        return 0;
-    }
     let result = computerPlay - playerSelection;
     
     if(result === 0){
-             return ("It is a Tie, you both chose " + options[computerPlay-1]);
+            console.log("It is a Tie, you both chose " + options[computerPlay-1]);
+            return 0
     }
     if(result === -1 || result ===2){
-            return ("You win " +options[playerSelection-1]+ " beats " +options[computerPlay-1]);
+            console.log("You win " +options[playerSelection-1]+ " beats " +options[computerPlay-1]);
+            return true
     }
     if (result === 1 || result ===-2){
-            return ("You lost " +options[playerSelection-1] + " looses to " + options[computerPlay-1]);
+            console.log("You lost " +options[playerSelection-1] + " looses to " + options[computerPlay-1]);
+            return false
     }
 }
+let userWins=0;
+let computerWins =0;
+for(let i=0; i<5;i++){
+    console.log("round "+ (i+1))
+    playerInput= prompt("write in your choice: ")
+    let loopVerifier = playerSelection(playerInput)
+    while(loopVerifier===4){
+        playerInput = prompt("Write a valid input")
+        loopVerifier=playerSelection(playerInput)
+    }
+    winner = playRound(computerPlay(),playerSelection(playerInput))
+    if(winner===true){ userWins++;}
+    else if(winner===false){computerWins++}
+    else{console.log("Tie")}
+    console.log("")
 
-function game(playRound,computerPlay,playerSelection,playerInput){
-    
-    playRound(computerPlay(),playerSelection(playerInput))
 }
-let playerInput = prompt("This is rock paper scissors, write your choice: ", options[Math.floor(Math.random()*3)] );
+if(computerWins>userWins){ console.log("Computer wins the game")}
+else if(userWins>computerWins){console.log("You win the game")}
+else{console.log("The game is a tie\n")}
+
+console.log("Your score: "+userWins+ "\n")
+console.log("Computer score: "+computerWins)
