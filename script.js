@@ -17,13 +17,28 @@ function computerPlay(){
     }
 }
 function playerSelection(playerInput){
-
+    playerInput= playerInput.trim();
+    playerInput= playerInput.toLowerCase();
+    switch(playerInput){
+        case "rock":
+            return 1
+            break;
+        case "paper":
+            return 2;
+            break;
+        case "scissors":
+            return 3;
+            break;
+        default:
+            console.log("Invalid input");
+            break;
+    } 
 }
-
+var options = ["Rock", "Paper", "Scissors"]
 function playRound(computerPlay,playerSelection){
     // this function is used to check who won 
     let result = computerPlay - playerSelection;
-    const options = ["Rock", "Paper", "Scissors"] 
+    
     if(result === 0){
             console.log("It is a Tie, you both chose " + options[computerPlay-1]);
     }
@@ -35,4 +50,5 @@ function playRound(computerPlay,playerSelection){
     }
 }
 
-playRound(computerPlay() ,computerPlay());
+let playerInput = prompt("This is rock paper scissors, write your choice: ", options[Math.floor(Math.random()*3)+1] )
+console.log(playerSelection(playerInput))
