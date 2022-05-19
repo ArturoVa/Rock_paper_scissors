@@ -35,7 +35,7 @@ function playerSelection(playerInput){// function to convert the input to number
             break;
     } 
 }
-var options = ["Rock", "Paper", "Scissors"];
+
 function playRound(computerPlay,playerSelection){
     // this function is used to check who won 
     let result = computerPlay - playerSelection; 
@@ -55,33 +55,6 @@ function playRound(computerPlay,playerSelection){
 }
 
 //Game start 
-let userWins=0;
-let computerWins =0;
-for(let i=0; i<5;i++){
-    console.log("round "+ (i+1)) 
-
-    playerInput= prompt("write in your choice: ")
-    let loopVerifier = playerSelection(playerInput)     //ask for input and verify that it is not a invalid input
-    while(loopVerifier===4){
-        playerInput = prompt("Write a valid input")
-        loopVerifier=playerSelection(playerInput)
-    }
-
-
-    winner = playRound(computerPlay(),playerSelection(playerInput)) //after every playRound , add the points to the computer or user depending on who won
-    if(winner===true){ userWins++;}
-    else if(winner===false){computerWins++}
-    else{console.log("Tie")}
-
-
-    console.log("")
-
-}
+var options = ["Rock", "Paper", "Scissors"];
 
 // print the results
-if(computerWins>userWins){ console.log("Computer wins the game")}
-else if(userWins>computerWins){console.log("You win the game")}
-else{console.log("The game is a tie\n")}
-
-console.log("Your score: "+userWins+ "\n")
-console.log("Computer score: "+computerWins)

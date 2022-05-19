@@ -1,0 +1,49 @@
+body{
+    display: flex;
+    margin: 0;
+    
+    height:  100vh;
+    width: 100vw;
+    padding: 5px;
+    box-sizing: border-box; /*This is prevents border and padding from adding more space to size*/
+    /* Background settings */
+    background-image: url('./html-color-codes-color-tutorials-hero.jpg');
+    background-repeat: no-repeat; 
+    background-size:cover; /*This prevent bg from resizing*/
+
+}
+
+.container{
+    /*Content alignment*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    /* Size of the container div*/
+    flex-grow: 1;
+
+    flex-shrink: 1;
+    flex-basis: inherit;
+
+    /* Decoration */
+    background-color: rgba(218, 255, 82, 0.6);
+
+    border-radius: 10px;
+}
+
+.container .head{
+    font-size: 30px;
+    color: cadetblue;
+    font-weight: bold;
+}
+
+button{
+    transition-duration: 0.4s;
+}
+button:hover{
+    background-color:aqua;
+}
+
+
+
