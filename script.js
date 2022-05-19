@@ -1,3 +1,4 @@
+var options = ["Rock", "Paper", "Scissors"];
 function computerPlay(){
      // This function is the one that chooses what the computer is going to throw
      console.log("The computer chose: ")
@@ -54,7 +55,13 @@ function playRound(computerPlay,playerSelection){
     }
 }
 
+const btn_rock = document.querySelector("#Rock")
+const btn_paper = document.querySelector("#Paper")
+const btn_scissors = document.querySelector("#Scissors")
+
 //Game start 
-var options = ["Rock", "Paper", "Scissors"];
+
+
+
 
 // print the results
