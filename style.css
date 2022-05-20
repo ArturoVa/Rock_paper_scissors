@@ -7,8 +7,7 @@ body{
     /*Dimension*/
     margin: 0;
     display: flex;
-    height:  100vh;
-    width: 100vw;
+    min-height: 100vh;
     padding: 5px;
     box-sizing: border-box; /*This is prevents border and padding from adding more space to size*/
     /* Background settings */
@@ -58,20 +57,31 @@ body{
     font-size: 30px;
 }
 button{
+    /*Animation settings*/
     transition-duration: 0.4s;
+    /*Button size*/
     padding: 10px;
     margin: 15px;
-    background-color: green;
+    width: 90px;
+    height: 100px;
+    box-sizing: border-box;
+    
+
+    /*Button design*/
+    
     font-size: 35px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     border-radius: 5px;
-    border:5px solid rgb(0, 255, 68)
-    
+    border:5px solid rgb(0, 255, 68);
+    background-color: green;
 }
 button:hover{
     background-color:rgb(123, 6, 27);
     color: aliceblue;
-    border: 10px dotted;
+    transform: scale(1.2); /*Prevents the item moving all*/
+    box-sizing: border-box;
+    border: solid rgb(102, 255, 0);
+    box-shadow: 0 0 1rem rgb(191, 255, 0); /*Shadow of the boxes*/
 
 }
 
