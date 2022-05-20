@@ -1,13 +1,18 @@
 body{
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    /*Dimension*/
     margin: 0;
-    
+    display: flex;
     height:  100vh;
     width: 100vw;
     padding: 5px;
     box-sizing: border-box; /*This is prevents border and padding from adding more space to size*/
     /* Background settings */
-    background-image: url('./html-color-codes-color-tutorials-hero.jpg');
+    background-color: black;
     background-repeat: no-repeat; 
     background-size:cover; /*This prevent bg from resizing*/
 
@@ -22,13 +27,14 @@ body{
 
     /* Size of the container div*/
     flex-grow: 1;
-
     flex-shrink: 1;
     flex-basis: inherit;
+    max-height: 500px;
+    height: 500px;
+    max-width: 800px;
 
     /* Decoration */
-    background-color: rgba(218, 255, 82, 0.6);
-
+    background-color: rgb(111, 95, 5);
     border-radius: 10px;
 }
 
@@ -36,13 +42,41 @@ body{
     font-size: 30px;
     color: cadetblue;
     font-weight: bold;
+    align-items: center;
 }
 
+.container .buttons{
+    display: flex;
+    justify-content: space-around;
+    color: aqua;
+    flex-direction: row;
+
+
+}
+
+.prompt{
+    font-size: 30px;
+}
 button{
     transition-duration: 0.4s;
+    padding: 10px;
+    margin: 15px;
+    background-color: green;
+    font-size: 35px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border-radius: 5px;
+    border:5px solid rgb(0, 255, 68)
+    
 }
 button:hover{
-    background-color:aqua;
+    background-color:rgb(123, 6, 27);
+    color: aliceblue;
+    border: 10px dotted;
+
+}
+
+img{
+    border-radius: 10px;
 }
 
 
