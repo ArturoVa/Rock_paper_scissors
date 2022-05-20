@@ -16,7 +16,12 @@ body{
     background-size:cover; /*This prevent bg from resizing*/
 
 }
-
+.container .wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .container{
     /*Content alignment*/
     display: flex;
