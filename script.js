@@ -60,7 +60,7 @@ const btn_paper = document.querySelector("#Paper")
 const btn_scissors = document.querySelector("#Scissors")
 
 //Game start 
-
+btn_paper.addEventListener('click',)
 
 
 
