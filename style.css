@@ -92,6 +92,7 @@ button:hover{
 
 img{
     border-radius: 10px;
+    max-height: 250px;
 }
 
 
