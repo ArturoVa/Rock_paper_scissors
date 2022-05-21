@@ -1,9 +1,6 @@
 var options = ["Rock", "Paper", "Scissors"]; //variables used to print the choice of player and computer
 var imagesOptions = ['./images/rock paper scissors.webp', './images/lupin.webp','./images/pistol.webp', './images/gai-kakashi.gif', './images/gintama.gif'] //image options to display
 
-
-
-
 // Checks if someone has already won
 function checker(playerPoints,computerPoints){
     
@@ -28,7 +25,6 @@ function checker(playerPoints,computerPoints){
 //play one round 
 function playRound(computerPlay,playerSelection){
     // this function is used to check who won 
-    var options = ["Rock", "Paper", "Scissors"];
     let result = computerPlay - playerSelection; 
     
     if(result === 0){ 
@@ -49,7 +45,6 @@ function initiateRound(playerSelection) {
 
     if(result === 0){
         promptDiv.textContent = "It is a Tie, you both chose " + options[playerSelection];
-
     }
     else if(result === 2){
         promptDiv.textContent = "You lost " + options[playerSelection] + " looses to " + options[computerChoice];
@@ -61,8 +56,8 @@ function initiateRound(playerSelection) {
     }
     numberOfRound +=1;
     header1[0].textContent = `Round no.${numberOfRound}`
-    counterDiv.textContent = `Player point:${playerPoints}     Computer points:${computerPoints}`;
-    counterDiv.textContent = `Player point:${playerPoints}     Computer points:${computerPoints}`
+    counterDiv.textContent = `Player points:${playerPoints}     Computer points:${computerPoints}`;
+    counterDiv.textContent = `Player points:${playerPoints}     Computer points:${computerPoints}`
     checker(playerPoints,computerPoints);
 
 }
