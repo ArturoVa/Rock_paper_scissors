@@ -64,6 +64,10 @@ function gameScissors(){
 let computerPoints= 0;
 let playerPoints= 0;
 
+
+//round counter 
+let numberOfRound = 0;
+
 //buttons 
 const btn_rock = document.querySelector("#Rock");
 const btn_paper = document.querySelector("#Paper");
@@ -76,6 +80,7 @@ const imagen = document.getElementById("image") //image
 // Divs that will be changed
 const counterDiv = document.getElementById("counter")
 const promptDiv = document.getElementById("teller")
+const header1 = document.getElementsByClassName('head');
 
 //random image displayer from ImageOptions
 imagen.src=imagesOptions[Math.floor(Math.random()*imagesOptions.length)]
@@ -96,6 +101,9 @@ btn_rock.addEventListener('click',function(){
         promptDiv.textContent = "You win, " + options[0] + " wins over " +options[2];
         playerPoints +=1;
     }
+    numberOfRound +=1;
+    header1[0].textContent = `Round no.${numberOfRound}`
+    counterDiv.textContent = `Player point:${playerPoints}     Computer points:${computerPoints}`;
     counterDiv.textContent = `Player point:${playerPoints}     Computer points:${computerPoints}`
     checker(playerPoints,computerPoints);
 });
@@ -117,6 +125,9 @@ btn_paper.addEventListener('click',function(){
         promptDiv.textContent = "You win, " + options[1] + " wins over " +options[0];
         playerPoints +=1;
     }
+    numberOfRound +=1;
+    header1[0].textContent = `Round no.${numberOfRound}`
+    counterDiv.textContent = `Player point:${playerPoints}     Computer points:${computerPoints}`;
     counterDiv.textContent = `Player point:${playerPoints}     Computer points:${computerPoints}`
     checker(playerPoints,computerPoints);
 });
@@ -138,6 +149,8 @@ btn_scissors.addEventListener('click',function(){
         promptDiv.textContent = "You win, " + options[2] + " wins over " +options[1];
         playerPoints +=1;
     }
+    numberOfRound +=1;
+    header1[0].textContent = `Round no.${numberOfRound}`
     counterDiv.textContent = `Player point:${playerPoints}     Computer points:${computerPoints}`;
     checker(playerPoints,computerPoints);
 });
