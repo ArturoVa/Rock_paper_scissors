@@ -4,18 +4,23 @@ var imagesOptions = ['./images/rock paper scissors.webp', './images/lupin.webp',
 
 
 
-
+// Checks if someone has already won
 function checker(playerPoints,computerPoints){
     
     if(computerPoints>=5){
         buttons.forEach(x=>x.disabled=true);
         imagen.src="./images/chomp.gif"
-        promptDiv.textContent = 'Bruh, you lost to pc :('
+        promptDiv.innerHTML = 'Bruh, you <span style="color:red; font-weight:900;">lost</span> to pc :(';
+        counterDiv.remove();
+
     }
     else if(playerPoints>=5){
         buttons.forEach(x=>x.disabled=true);
         imagen.src="./images/win.gif"
-        promptDiv.textContent = 'Congrats my man, you won over that little bitch'
+        promptDiv.innerHTML = 'Congrats my man, you <span style="color:green; font-weight:900; font-family:Impact;">won</span>'
+        + ' over that <span style="color:pink; font-weight:900; font-family:Impact;">little bastard</span> 😎';
+        counterDiv.remove();
+        
     }
 
 
@@ -75,6 +80,8 @@ const promptDiv = document.getElementById("teller")
 //random image displayer from ImageOptions
 imagen.src=imagesOptions[Math.floor(Math.random()*imagesOptions.length)]
 
+
+// buttons event listeners
 btn_rock.addEventListener('click',function(){
     
     let result = gameRock();
@@ -93,7 +100,7 @@ btn_rock.addEventListener('click',function(){
     checker(playerPoints,computerPoints);
 });
 
-
+/*-------------------*/
 
 btn_paper.addEventListener('click',function(){
     
@@ -114,6 +121,7 @@ btn_paper.addEventListener('click',function(){
     checker(playerPoints,computerPoints);
 });
 
+/*-------------------*/
 
 btn_scissors.addEventListener('click',function(){
     
