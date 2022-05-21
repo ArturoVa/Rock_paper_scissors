@@ -90,10 +90,10 @@ imagen.src=imagesOptions[Math.floor(Math.random()*imagesOptions.length)]
 btn_rock.addEventListener('click',function(){
     
     let result = gameRock();
-    if(result === true){
+    if(result){
         promptDiv.textContent = "It is a Tie, you both chose " +options[0];
     }
-    else if(result === false){
+    else if(!result){
         promptDiv.textContent = "You lost " +options[0] + " looses to " + options[1];
         computerPoints += 1;
     }
@@ -113,11 +113,11 @@ btn_rock.addEventListener('click',function(){
 btn_paper.addEventListener('click',function(){
     
     let result = gameRock();
-    if(result === true){
+    if(result){
         promptDiv.textContent = "It is a Tie, you both chose " +options[1];
 
     }
-    else if(result === false){
+    else if(!result){
         promptDiv.textContent = "You lost " +options[1] + " looses to " + options[2];
         computerPoints += 1;
     }
@@ -137,11 +137,11 @@ btn_paper.addEventListener('click',function(){
 btn_scissors.addEventListener('click',function(){
     
     let result = gameRock();
-    if(result === true){
+    if(result){
         promptDiv.textContent = "It is a Tie, you both chose " +options[2];
 
     }
-    else if(result === false){
+    else if(!result){
         promptDiv.textContent = "You lost " +options[2] + " looses to " + options[0];
         computerPoints += 1;
     }
