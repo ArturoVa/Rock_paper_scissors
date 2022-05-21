@@ -28,6 +28,7 @@ body{
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    text-align: center;
 
     /* Size of the container div*/
     flex-grow: 1;
