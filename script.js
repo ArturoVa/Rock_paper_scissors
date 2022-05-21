@@ -1,47 +1,128 @@
+var options = ["Rock", "Paper", "Scissors"]; //variables used to print the choice of player and computer
+
+function checker(playerPoints,computerPoints){
+    
+    if(computerPoints>=5){
+        buttons.forEach(x=>x.disabled=true);
+        imagen.src="./images/chomp.gif"
+    }
+    else if(playerPoints>=5){
+        buttons.forEach(x=>x.disabled=true);
+        imagen.src="./images/chomp.gif"
+
+
+    }
+
+
+}
+//play one round 
 function playRound(computerPlay,playerSelection){
     // this function is used to check who won 
     var options = ["Rock", "Paper", "Scissors"];
     let result = computerPlay - playerSelection; 
     
     if(result === 0){ 
-            console.log("It is a Tie, you both chose " + options[computerPlay]);
             return 0
     }
-    if(result === -1 || result ===2){
-            console.log("You win " +options[playerSelection]+ " beats " +options[computerPlay]);
+    if(result === -1 || result ===2){         
             return true
     }
     if (result === 1 || result ===-2){
-            console.log("You lost " +options[playerSelection] + " looses to " + options[computerPlay]);
             return false
     }
 }
+
+//Game functions  
 function gameRock() {
-    let computerChoice = Math.floor(Math.random()*3);
-    let playerSelection = 0
-    console.log(playRound(computerChoice,playerSelection));
+    let computerChoice = Math.floor(Math.random()*3); 
+    let playerSelection = 0 // 0 == rock
+    return playRound(computerChoice,playerSelection);
 }
 function gamePaper() {
     let computerChoice = Math.floor(Math.random()*3);
-    let playerSelection = 1
+    let playerSelection = 1 // 1 == paper
     console.log(playRound(computerChoice,playerSelection));
 }
 function gameScissors(){
     let computerChoice = Math.floor(Math.random()*3);
-    let playerSelection = 2
-    console.log(playRound(computerChoice,playerSelection));
+    let playerSelection = 2 // 2 == scissors
+    return playRound(computerChoice,playerSelection);
 }
 
+
+//points counter
+let computerPoints= 0;
+let playerPoints= 0;
+
+//buttons 
 const btn_rock = document.querySelector("#Rock");
 const btn_paper = document.querySelector("#Paper");
 const btn_scissors = document.querySelector("#Scissors");
-btn_rock.addEventListener('click',gameRock);
-btn_paper.addEventListener('click',gamePaper);
-btn_scissors.addEventListener('click',gameScissors);
+const buttons = document.querySelectorAll('.btn');
 
-//Game start 
+//image container
+const imagen = document.getElementsByTagName('img') //image
+
+// Divs that will be changed
+const counterDiv = document.getElementById("counter")
+const promptDiv = document.getElementById("teller")
+
+
+btn_rock.addEventListener('click',function(){
+    
+    let result = gameRock();
+    if(result === true){
+        promptDiv.textContent = "It is a Tie, you both chose " +options[0];
+    }
+    else if(result === false){
+        promptDiv.textContent = "You lost " +options[0] + " looses to " + options[1];
+        computerPoints += 1;
+    }
+    else if(result === 0){
+        promptDiv.textContent = "You win, " + options[0] + " wins over " +options[2];
+        playerPoints +=1;
+    }
+    counterDiv.textContent = `Player point:${playerPoints}     Computer points:${computerPoints}`
+    checker(playerPoints,computerPoints);
+});
 
 
 
+btn_paper.addEventListener('click',function(){
+    
+    let result = gameRock();
+    if(result === true){
+        promptDiv.textContent = "It is a Tie, you both chose " +options[1];
 
-// print the results
+    }
+    else if(result === false){
+        promptDiv.textContent = "You lost " +options[1] + " looses to " + options[2];
+        computerPoints += 1;
+    }
+    else if(result === 0){
+        promptDiv.textContent = "You win, " + options[1] + " wins over " +options[0];
+        playerPoints +=1;
+    }
+    counterDiv.textContent = `Player point:${playerPoints}     Computer points:${computerPoints}`
+    checker(playerPoints,computerPoints);
+});
+
+
+btn_scissors.addEventListener('click',function(){
+    
+    let result = gameRock();
+    if(result === true){
+        promptDiv.textContent = "It is a Tie, you both chose " +options[2];
+
+    }
+    else if(result === false){
+        promptDiv.textContent = "You lost " +options[2] + " looses to " + options[0];
+        computerPoints += 1;
+    }
+    else if(result === 0){
+        promptDiv.textContent = "You win, " + options[2] + " wins over " +options[1];
+        playerPoints +=1;
+    }
+    counterDiv.textContent = `Player point:${playerPoints}     Computer points:${computerPoints}`;
+    checker(playerPoints,computerPoints);
+});
