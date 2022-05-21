@@ -34,29 +34,37 @@ function playRound(computerPlay,playerSelection){
     if(result === 0){ 
             return 0
     }
-    if(result === -1 || result ===2){         
-            return true
+    if(result === -1 || result ===2){         // WIN 
+            return 1
     }
-    if (result === 1 || result ===-2){
-            return false
+    if (result === 1 || result ===-2){          //LOOSE
+            return 2
     }
 }
 
-//Game functions  
-function gameRock() {
+//Game function  
+function initiateRound(playerSelection) {
     let computerChoice = Math.floor(Math.random()*3); 
-    let playerSelection = 0 // 0 == rock
-    return playRound(computerChoice,playerSelection);
-}
-function gamePaper() {
-    let computerChoice = Math.floor(Math.random()*3);
-    let playerSelection = 1 // 1 == paper
-    console.log(playRound(computerChoice,playerSelection));
-}
-function gameScissors(){
-    let computerChoice = Math.floor(Math.random()*3);
-    let playerSelection = 2 // 2 == scissors
-    return playRound(computerChoice,playerSelection);
+    result = playRound(computerChoice, playerSelection);
+
+    if(result === 0){
+        promptDiv.textContent = "It is a Tie, you both chose " + options[playerSelection];
+
+    }
+    else if(result === 2){
+        promptDiv.textContent = "You lost " + options[playerSelection] + " looses to " + options[computerChoice];
+        computerPoints += 1;
+    }
+    else if(result === 1){
+        promptDiv.textContent = "You win, " + options[playerSelection] + " wins over " +options[computerChoice];
+        playerPoints +=1;
+    }
+    numberOfRound +=1;
+    header1[0].textContent = `Round no.${numberOfRound}`
+    counterDiv.textContent = `Player point:${playerPoints}     Computer points:${computerPoints}`;
+    counterDiv.textContent = `Player point:${playerPoints}     Computer points:${computerPoints}`
+    checker(playerPoints,computerPoints);
+
 }
 
 
@@ -87,70 +95,18 @@ imagen.src=imagesOptions[Math.floor(Math.random()*imagesOptions.length)]
 
 
 // buttons event listeners
-btn_rock.addEventListener('click',function(){
-    
-    let result = gameRock();
-    if(result){
-        promptDiv.textContent = "It is a Tie, you both chose " +options[0];
-    }
-    else if(!result){
-        promptDiv.textContent = "You lost " +options[0] + " looses to " + options[1];
-        computerPoints += 1;
-    }
-    else if(result === 0){
-        promptDiv.textContent = "You win, " + options[0] + " wins over " +options[2];
-        playerPoints +=1;
-    }
-    numberOfRound +=1;
-    header1[0].textContent = `Round no.${numberOfRound}`
-    counterDiv.textContent = `Player point:${playerPoints}     Computer points:${computerPoints}`;
-    counterDiv.textContent = `Player point:${playerPoints}     Computer points:${computerPoints}`
-    checker(playerPoints,computerPoints);
+btn_rock.addEventListener('click', () => {
+    initiateRound(0)
 });
 
-/*-------------------*/
+/-------------------/
 
-btn_paper.addEventListener('click',function(){
-    
-    let result = gameRock();
-    if(result){
-        promptDiv.textContent = "It is a Tie, you both chose " +options[1];
-
-    }
-    else if(!result){
-        promptDiv.textContent = "You lost " +options[1] + " looses to " + options[2];
-        computerPoints += 1;
-    }
-    else if(result === 0){
-        promptDiv.textContent = "You win, " + options[1] + " wins over " +options[0];
-        playerPoints +=1;
-    }
-    numberOfRound +=1;
-    header1[0].textContent = `Round no.${numberOfRound}`
-    counterDiv.textContent = `Player point:${playerPoints}     Computer points:${computerPoints}`;
-    counterDiv.textContent = `Player point:${playerPoints}     Computer points:${computerPoints}`
-    checker(playerPoints,computerPoints);
+btn_paper.addEventListener('click', () => {
+    initiateRound(1)
 });
 
-/*-------------------*/
+/-------------------/
 
-btn_scissors.addEventListener('click',function(){
-    
-    let result = gameRock();
-    if(result){
-        promptDiv.textContent = "It is a Tie, you both chose " +options[2];
-
-    }
-    else if(!result){
-        promptDiv.textContent = "You lost " +options[2] + " looses to " + options[0];
-        computerPoints += 1;
-    }
-    else if(result === 0){
-        promptDiv.textContent = "You win, " + options[2] + " wins over " +options[1];
-        playerPoints +=1;
-    }
-    numberOfRound +=1;
-    header1[0].textContent = `Round no.${numberOfRound}`
-    counterDiv.textContent = `Player point:${playerPoints}     Computer points:${computerPoints}`;
-    checker(playerPoints,computerPoints);
+btn_scissors.addEventListener('click', () => {
+    initiateRound(2)
 });
