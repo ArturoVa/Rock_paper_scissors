@@ -1,16 +1,21 @@
 var options = ["Rock", "Paper", "Scissors"]; //variables used to print the choice of player and computer
+var imagesOptions = ['./images/rock paper scissors.webp', './images/lupin.webp','./images/pistol.webp', './images/gai-kakashi.gif', './images/gintama.gif'] //image options to display
+
+
+
+
 
 function checker(playerPoints,computerPoints){
     
     if(computerPoints>=5){
         buttons.forEach(x=>x.disabled=true);
         imagen.src="./images/chomp.gif"
+        promptDiv.textContent = 'Bruh, you lost to pc :('
     }
     else if(playerPoints>=5){
         buttons.forEach(x=>x.disabled=true);
-        imagen.src="./images/chomp.gif"
-
-
+        imagen.src="./images/win.gif"
+        promptDiv.textContent = 'Congrats my man, you won over that little bitch'
     }
 
 
@@ -61,12 +66,14 @@ const btn_scissors = document.querySelector("#Scissors");
 const buttons = document.querySelectorAll('.btn');
 
 //image container
-const imagen = document.getElementsByTagName('img') //image
+const imagen = document.getElementById("image") //image
 
 // Divs that will be changed
 const counterDiv = document.getElementById("counter")
 const promptDiv = document.getElementById("teller")
 
+//random image displayer from ImageOptions
+imagen.src=imagesOptions[Math.floor(Math.random()*imagesOptions.length)]
 
 btn_rock.addEventListener('click',function(){
     
